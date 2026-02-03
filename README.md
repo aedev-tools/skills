@@ -1,11 +1,11 @@
-# aedev-skills
+# aedev.tools Skills
 
-AI agent skills for After Effects automation. Describe what you want in natural language, and Claude Code (or other agents) will generate and execute the ExtendScript for you.
+AI agent skills for creative tools. Start with After Effects automation — describe what you want in natural language, and Claude Code (or other agents) will generate and execute the code for you.
 
 Built by [aedev.tools](https://aedev.tools)
 
 ```bash
-npx skills add aedev-tools/aedev-skills
+npx skills add aedev-tools/skills
 ```
 
 ---
@@ -48,7 +48,7 @@ npx skills add aedev-tools/aedev-skills
 1. **Install the skill:**
 
    ```bash
-   npx skills add aedev-tools/aedev-skills
+   npx skills add aedev-tools/skills
    ```
 
 2. **Enable scripting in After Effects:**
@@ -83,7 +83,7 @@ Plus query scripts that read your project state progressively — from a lightwe
 ## Feedback & Issues
 
 Found a bug? Have a feature request or idea?
-[Open an issue](https://github.com/aedev-tools/aedev-skills/issues) — let's build this together.
+[Open an issue](https://github.com/aedev-tools/skills/issues) — let's build this together.
 
 ## License
 

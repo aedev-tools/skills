@@ -1,5 +1,5 @@
 ---
-name: after-effects-assistant
+name: after-effects
 description: >
   Automate Adobe After Effects via ExtendScript. Use when the user asks to
   create, modify, or query anything in an After Effects project — layers,
