@@ -80,6 +80,11 @@ The skill includes domain knowledge and tooling across the full After Effects sc
 
 Plus query scripts that read your project state progressively — from a lightweight overview down to individual layer properties — so the agent only loads the context it needs.
 
+## Feedback & Issues
+
+Found a bug? Have a feature request or idea?
+[Open an issue](https://github.com/aedev-tools/aedev-skills/issues) — let's build this together.
+
 ## License
 
 Apache 2.0 — see [LICENSE](LICENSE) for details.
