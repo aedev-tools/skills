@@ -4,6 +4,8 @@ AI agent skills for creative tools. Start with After Effects automation — desc
 
 Built by [aedev.tools](https://aedev.tools)
 
+![AE Skills Demo](assets/demo.gif)
+
 ```bash
 npx skills add aedev-tools/skills
 ```
