@@ -1,5 +1,4 @@
 # Adobe Suite Skills
-by aedev.tools
 
 AI agent skills for creative tools. Start with After Effects automation — describe what you want in natural language, and Claude Code (or other agents) will generate and execute the code for you.
 
