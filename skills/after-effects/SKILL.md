@@ -224,6 +224,104 @@ bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-comp-settings.jsx" '{"comp
 bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-comp-settings.jsx" '{"scope": "nested", "fps": 30, "duration": 10}'
 ```
 
+**Easing Presets** — apply professional easing or bounce/elastic expressions:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/easing-presets.jsx" '{"preset": "smooth"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/easing-presets.jsx" '{"preset": "snappy"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/easing-presets.jsx" '{"preset": "bounce"}'
+```
+
+**Anchor Point Mover** — reposition anchor point with visual position compensation:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/anchor-point-mover.jsx" '{"position": "center"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/anchor-point-mover.jsx" '{"position": "bottom-left"}'
+```
+
+**Reverse Keyframes** — reverse animation on selected properties:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/reverse-keyframes.jsx"
+```
+
+**Select Layers** — select layers by type, label, attribute, or name:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/select-layers.jsx" '{"type": "text"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/select-layers.jsx" '{"hasExpressions": true}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/select-layers.jsx" '{"nameContains": "BG"}'
+```
+
+**Layer Sort** — reorder layers in timeline by name, position, in-point, type, or label:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/layer-sort.jsx" '{"sortBy": "name", "order": "ascending"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/layer-sort.jsx" '{"sortBy": "position-y"}'
+```
+
+**Smart Precompose** — precompose with auto-trimmed duration:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/smart-precompose.jsx" '{"name": "My Precomp", "trimToContent": true}'
+```
+
+**Copy Ease** — copy easing from one keyframe and paste to others:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/copy-ease.jsx" '{"mode": "both"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/copy-ease.jsx" '{"sourceLayer": "Logo", "sourceProperty": "Position", "sourceKeyIndex": 2}'
+```
+
+**Relink Footage** — batch-relink missing footage from search directories. Always dryRun first:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/relink-footage.jsx" '{"searchPaths": ["/Volumes/Projects/footage"], "dryRun": true}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/relink-footage.jsx" '{"searchPaths": ["/Volumes/Projects/footage"]}'
+```
+
+**SRT Import** — create timed subtitle text layers from an SRT file:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/srt-import.jsx" '{"srtPath": "/path/to/subs.srt", "fontSize": 48}'
+```
+
+**Text Export/Import** — export all text to CSV, edit externally, reimport:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/text-export-import.jsx" '{"mode": "export", "csvPath": "/tmp/text.csv"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/text-export-import.jsx" '{"mode": "import", "csvPath": "/tmp/text.csv"}'
+```
+
+**Batch Expression** — apply, remove, enable, or disable expressions in bulk:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-expression.jsx" '{"property": "opacity", "expression": "wiggle(2, 10)", "mode": "apply"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-expression.jsx" '{"mode": "remove"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-expression.jsx" '{"mode": "disable"}'
+```
+
+**Randomize Properties** — apply random values to transform properties:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/randomize-properties.jsx" '{"property": "rotation", "min": -15, "max": 15}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/randomize-properties.jsx" '{"property": "position", "minX": 0, "maxX": 1920, "minY": 0, "maxY": 1080}'
+```
+
+**Un-PreCompose** — extract layers from a precomp back into parent (confirm before running):
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/un-precompose.jsx" '{"precompLayerName": "Precomp 1"}'
+```
+
+**Comp from CSV** — generate comp variations from spreadsheet data (confirm before running):
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/comp-from-csv.jsx" '{"templateComp": "Lower Third", "csvPath": "/path/data.csv"}'
+```
+
+**Render Queue Batch** — add multiple comps to render queue (confirm before running):
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/render-queue-batch.jsx" '{"compNames": ["Final_16x9", "Final_9x16"], "outputPath": "~/Desktop/renders/"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/render-queue-batch.jsx" '{"scope": "folder", "folderName": "Finals"}'
+```
+
+**Explode Shape Layer** — split shape groups into individual layers:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/explode-shape-layer.jsx" '{"layerName": "AI Import"}'
+```
+
+**Incremental Save** — save project with auto-incrementing version number:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/incremental-save.jsx" '{"comment": "before revisions"}'
+```
+
 ### Step 6: Execute and read result
 
 ```bash
