@@ -64,6 +64,25 @@ bash scripts/runner.sh scripts/layer-detail.jsx '{"layerNames": ["Layer 1", "Lay
 
 Omit `compName` to use the active comp. Omit `layerNames` to use selected layers.
 
+#### Additional query scripts
+
+**Expression errors** — scan for broken expressions:
+```bash
+bash scripts/runner.sh scripts/expression-errors.jsx
+bash scripts/runner.sh scripts/expression-errors.jsx '{"compName": "Main Comp"}'
+```
+
+**Font inventory** — list all fonts used across the project:
+```bash
+bash scripts/runner.sh scripts/font-inventory.jsx
+```
+
+**Project audit** — comprehensive health check (unused footage, missing files, expression errors, duplicate solids, font issues, empty folders):
+```bash
+bash scripts/runner.sh scripts/project-audit.jsx
+bash scripts/runner.sh scripts/project-audit.jsx '{"checks": ["unused", "missing", "expressions"]}'
+```
+
 ### Step 3: Load domain knowledge
 
 Read the relevant rule file from `rules/`. Always read `rules/extendscript-fundamentals.md` — it contains ES3 constraints that apply to every generated script.
@@ -140,7 +159,7 @@ bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/ae-action.jsx"
 ### Step 5: Execute or confirm
 
 **Auto-run** (no confirmation needed):
-- All read-only queries (active-state, project-overview, comp-detail, layer-detail)
+- All read-only queries (active-state, project-overview, comp-detail, layer-detail, expression-errors, font-inventory, project-audit)
 - Non-destructive additions: adding a keyframe, adding an effect, creating a layer, creating a comp
 
 **Confirm before running** (show the script and ask the user):
@@ -149,7 +168,61 @@ bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/ae-action.jsx"
 - Replacing footage
 - Clearing expressions
 - Render queue operations
+- Project cleanup (removing unused items, consolidating solids)
 - Any operation the user might not expect
+
+### Built-in action scripts
+
+Before generating a custom `ae-action.jsx`, check if a built-in script already handles the task. These are permanent, tested scripts with args-based behavior:
+
+**True Comp Duplicator** — deep-clone a comp with independent sub-comps (confirm before running):
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/true-comp-duplicator.jsx" '{"compName": "Main Comp", "suffix": " COPY"}'
+```
+
+**Font Replace** — find and replace fonts across the project. Always dryRun first:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/font-replace.jsx" '{"find": "Helvetica", "replace": "Inter-Regular", "dryRun": true}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/font-replace.jsx" '{"find": "Helvetica", "replace": "Inter-Regular"}'
+```
+
+**Project Cleanup** — remove unused footage, consolidate duplicate solids, remove empty folders. Always dryRun first:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/project-cleanup.jsx" '{"dryRun": true}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/project-cleanup.jsx"
+```
+
+**Batch Rename** — rename layers, comps, or project items in bulk:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-rename.jsx" '{"target": "layers", "mode": "find-replace", "find": "Layer", "replace": "Element"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-rename.jsx" '{"target": "layers", "mode": "prefix", "prefix": "BG_"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-rename.jsx" '{"target": "layers", "mode": "sequence", "base": "Card", "start": 1}'
+```
+
+**Layer Stagger** — offset selected layers in time for cascade animations:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/layer-stagger.jsx" '{"offset": 0.1, "unit": "seconds", "direction": "forward"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/layer-stagger.jsx" '{"offset": 2, "unit": "frames"}'
+```
+
+**Expression Replace** — find/replace text in expressions project-wide. Always dryRun first:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/expression-replace.jsx" '{"find": "comp(\"Old\")", "replace": "comp(\"New\")", "dryRun": true}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/expression-replace.jsx" '{"find": "comp(\"Old\")", "replace": "comp(\"New\")"}'
+```
+
+**Organize Project** — auto-sort project panel items into folders by type:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/organize-project.jsx" '{"structure": "by-type"}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/organize-project.jsx" '{"structure": "by-extension"}'
+```
+
+**Batch Comp Settings** — change fps, resolution, duration across multiple comps:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-comp-settings.jsx" '{"scope": "all", "fps": 25}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-comp-settings.jsx" '{"compNames": ["Comp 1", "Comp 2"], "width": 3840, "height": 2160}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/batch-comp-settings.jsx" '{"scope": "nested", "fps": 30, "duration": 10}'
+```
 
 ### Step 6: Execute and read result
 
