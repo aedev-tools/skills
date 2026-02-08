@@ -70,6 +70,10 @@ Batch-relinks missing footage by searching specified directories for files with 
 
 Saves your project with an auto-incrementing version number (e.g., `Project_v001.aep`, `Project_v002.aep`). Detects existing version numbers and increments from there. Optionally appends a comment to the filename. Never overwrites — always finds the next available version number.
 
+### purge-cache.jsx
+
+Clears After Effects' memory and disk caches in one shot — image caches, undo history, snapshots, and the Media & Disk Cache files that eat up your hard drive. Supports dry-run mode to check how much space the disk cache is using before deleting. You can selectively purge only memory, only disk, or everything. When AE starts lagging or your drive fills up, this is the script to run.
+
 ---
 
 ## Composition Scripts

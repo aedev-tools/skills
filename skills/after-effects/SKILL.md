@@ -322,6 +322,13 @@ bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/explode-shape-layer.jsx" '{"laye
 bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/incremental-save.jsx" '{"comment": "before revisions"}'
 ```
 
+**Purge Cache** — clear memory caches, disk cache, and free resources. dryRun to check size first:
+```bash
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/purge-cache.jsx" '{"dryRun": true}'
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/purge-cache.jsx"
+bash "$SKILL_SCRIPTS/runner.sh" "$SKILL_SCRIPTS/purge-cache.jsx" '{"memory": true, "disk": false}'
+```
+
 ### Step 6: Execute and read result
 
 ```bash
