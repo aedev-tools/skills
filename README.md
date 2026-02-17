@@ -7,7 +7,7 @@ Built by [aedev.tools](https://aedev.tools)
 ![AE Skills Demo](assets/demo.gif)
 
 ```bash
-npx skills add aedev-tools/skills
+npx skills add aedev-tools/adobe-agent-skills
 ```
 
 ---
@@ -50,7 +50,7 @@ npx skills add aedev-tools/skills
 1. **Install the skill:**
 
    ```bash
-   npx skills add aedev-tools/skills
+   npx skills add aedev-tools/adobe-agent-skills
    ```
 
 2. **Enable scripting in After Effects:**
@@ -85,7 +85,7 @@ Plus query scripts that read your project state progressively — from a lightwe
 ## Feedback & Issues
 
 Found a bug? Have a feature request or idea?
-[Open an issue](https://github.com/aedev-tools/skills/issues) — let's build this together.
+[Open an issue](https://github.com/aedev-tools/adobe-agent-skills/issues) — let's build this together.
 
 ## License
 
